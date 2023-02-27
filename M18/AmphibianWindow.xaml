@@ -1,0 +1,57 @@
+﻿<Window x:Class="M18.AmphibianWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:M18"
+        mc:Ignorable="d"
+        Title="Амфибии" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.Row="0" Grid.ColumnSpan="2">
+            <MenuItem Header="Сохранить"/>
+        </Menu>
+
+        <ListBox Grid.Column="0" Grid.Row="1" x:Name="AmphibianListBox">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding aSpecies}"/>                       
+                        <Run Text=": Питанеие:"/>
+                        <Run Text="{Binding aFood}"/>
+                        <Run Text=":"/>
+                        <Run Text="{Binding aLimitDayFood}"/>
+                        <Run Text="; Плавает со скоростью:"/>
+                        <Run Text="{Binding waterSpeed}"/>
+                        <Run Text="; Состояние:"/>
+                        <Run Text="{Binding liveState}"/>
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+        <StackPanel Grid.Column="1" Grid.Row="1">
+
+            <TextBlock>Поставка животных:</TextBlock>
+            <TextBlock>Наименование:</TextBlock>
+            <TextBox x:Name="aSpeciesTextBox"/>
+            <TextBlock>Питается:</TextBlock>
+            <TextBox x:Name="aFoodTextBox"/>
+            <TextBlock>Съедает в день:</TextBlock>
+            <TextBox x:Name="aLimitDayFoodTextBox"/>
+            <TextBlock>Плавает со скоростью:</TextBlock>
+            <TextBox x:Name="waterSpeedTextBox"/>
+            <Button Content="Добавить" x:Name="AddNewAmphibianButton"/>
+            <TextBox x:Name="AmphibianAddResultTextBox"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

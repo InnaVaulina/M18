@@ -1,0 +1,56 @@
+﻿<Window x:Class="M18.FoodWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:M18"
+        mc:Ignorable="d"
+        Title="Продукты" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.Row="0" Grid.ColumnSpan="2">
+            <MenuItem Header="Сохранить"/>
+        </Menu>
+        
+            <ListBox Grid.Column="0" Grid.Row="1" x:Name="FoodListBox">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding foodName}"/>
+                        <Run Text=":"/>
+                        <Run Text="{Binding foodCount}"/>
+                    </TextBlock>
+                </DataTemplate>
+                </ListBox.ItemTemplate>
+                       
+            </ListBox>
+        
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock>Порча продуктов:</TextBlock>
+            <TextBlock x:Name="SelectedFood"/>
+            <TextBox x:Name="SelectedFoodCount"/>
+
+            <Button Content="Удалить" x:Name="DeleteFoodButton"/>
+            <TextBox x:Name="RemoveResultTextBox"/>
+
+            <TextBlock/>
+
+            <TextBlock>Поставка продуктов:</TextBlock>
+            <TextBlock>Наименование:</TextBlock>
+            <TextBox x:Name="NewFoodTextBox"/>
+            <TextBlock>Количество:</TextBlock>
+            <TextBox x:Name="NewFoodCountTextBox"/>
+            <Button Content="Добавить" x:Name="AddNewFoodButton"/>
+            <TextBox x:Name="NewFoodAddResultTextBox"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
